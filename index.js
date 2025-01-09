@@ -12,18 +12,14 @@ const app = express();
 const PORT = process.env.PORT || 4001;
 app.use(express.json());
 
-const allowedOrigins = ['https://jimjams.netlify.app'];
+const allowedOrigins = ['https://jimjam.netlify.app'];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,  // Allow cookies to be sent with requests
+  origin: allowedOrigins,
+  credentials: true,  // Allow cookies and credentials
 }));
+
+
 
 
 app.use(cookieParser());
