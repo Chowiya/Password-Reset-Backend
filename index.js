@@ -17,9 +17,16 @@ import cors from 'cors';
 const allowedOrigins = ['https://jimjam.netlify.app'];
 
 app.use(cors({
-  origin: allowedOrigins[0], // Use the specific frontend domain
-  credentials: true,         // Allow cookies and credentials
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
+
 
 
   
