@@ -12,10 +12,19 @@ const app = express();
 const PORT = process.env.PORT || 4001;
 app.use(express.json());
 
+const allowedOrigins = ['https://jimjam.netlify.app'];
+
 app.use(cors({
-    origin: '*',
-    credentials: true,
-  }));
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
   
 
 
