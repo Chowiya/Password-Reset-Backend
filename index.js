@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4001;
 app.use(express.json());
 
 
-const allowedOrigins = ['https://jimjam.netlify.app'];
+const allowedOrigins = ['http://localhost:5173','https://jimjam.netlify.app'];
 
 app.use(cors({
   origin: (origin, callback) => {
