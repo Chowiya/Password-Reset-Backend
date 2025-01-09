@@ -6,6 +6,8 @@ import { UserRouter } from './routes/user.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 dotenv.config();
+import path from 'path';
+console.log(path.resolve('models/user.js'));
 
 
 const app = express();
