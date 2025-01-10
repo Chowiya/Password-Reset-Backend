@@ -78,7 +78,7 @@ router.post('/forgot-password',async (req, res)=>{
             from: 'chowiya6@gmail',
             to: email,
             subject: 'reset password',
-            text: `http://https://jimjam.netlify.app/resetPassword/${token}`
+            text: `https://jimjam.netlify.app/resetPassword/${token}`
           };
           
           transporter.sendMail(mailOptions, function(error, info){
