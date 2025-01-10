@@ -14,9 +14,12 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin:['https://jimjam.netlify.app'],
-  credentials: true,
-}));
+    origin: ['https://jimjam.netlify.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  }));
+  
 
 
 
